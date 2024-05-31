@@ -1,5 +1,19 @@
 # electric-sql
 
+## 0.12.0
+
+### Minor Changes
+
+- a8eedad: feat: server-driven unsubscribes to allow clients to unsubscribe from shapes
+
+### Patch Changes
+
+- 17e793c: Fix asyncEventEmitter to not silence unhandled exceptions raised in event handlers.
+- 237e323: Better throttle snapshot stop strategy
+- 17e793c: Fix `ShapeManager` bug where manager state gets reset but the Satellite process is still assuming it is accessible.
+- b966157: Expose `SyncStatus` type and methods for introspecting shape subscription status
+- 276149d: Add notifier method `subscribeToShapeSubscriptionSyncStatusChanges` for listening to shape subscription status updates
+
 ## 0.11.3
 
 ### Patch Changes
