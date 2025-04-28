@@ -1,5 +1,13 @@
 # @core/sync-service
 
+## 1.0.12
+
+### Patch Changes
+
+- 55aef88: Fix handling of some connections errors. Treat "wal_level != logical" as a fatal error after which there's no point in retrying the connection.
+- c82153d: fix: make sure a split PK update is visible in the read log when it's in the last position in the transaction
+- 7fa69ac: fix: don't send a 500 on a shape delete race condition
+
 ## 1.0.11
 
 ### Patch Changes
