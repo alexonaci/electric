@@ -1,0 +1,58 @@
+{
+  "name": "@electric-examples/redis-integration-lib",
+  "version": "0.0.1",
+  "description": "Example using the @electric-sql/redis integration library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "private": true,
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "dev:simple": "tsx src/simple-example.ts",
+    "dev:sorted-set": "tsx src/sorted-set-example.ts",
+    "dev:list": "tsx src/list-example.ts",
+    "dev:set": "tsx src/set-example.ts",
+    "dev:stream": "tsx src/stream-example.ts",
+    "dev:ioredis": "tsx src/ioredis-example.ts",
+    "dev:iovalkey": "REDIS_URL=redis://localhost:6389 tsx src/iovalkey-example.ts",
+    "backend:up": "docker compose up -d && sleep 3 && pnpm db:migrate",
+    "backend:down": "docker compose down",
+    "backend:reset": "docker compose down -v && docker compose up -d && sleep 3 && pnpm db:migrate",
+    "db:migrate": "dotenv -e ../../.env.dev -- pnpm exec pg-migrations apply --directory ./db/migrations",
+    "db:psql": "docker exec -it redis-integration-lib-postgres-1 psql -U postgres -d electric",
+    "typecheck": "tsc -p tsconfig.json",
+    "stylecheck": "eslint 'src/**/*.{ts,js,tsx,jsx}' --no-error-on-unmatched-pattern"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electric-sql/electric.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/electric-sql/electric/issues"
+  },
+  "homepage": "https://github.com/electric-sql/electric#readme",
+  "dependencies": {
+    "@electric-sql/client": "workspace:*",
+    "@electric-sql/redis": "workspace:*",
+    "redis": "^4.6.14",
+    "ioredis": "^5.4.1",
+    "iovalkey": "^0.3.0"
+  },
+  "devDependencies": {
+    "@databases/pg-migrations": "^5.0.3",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
+    "dotenv-cli": "^7.4.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.3.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.5.2"
+  }
+}
