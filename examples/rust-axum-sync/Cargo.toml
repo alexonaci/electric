@@ -1,0 +1,17 @@
+[package]
+name = "rust-axum-sync"
+version = "0.1.0"
+edition = "2021"
+description = "Example: serve Electric-synced data via Axum"
+
+[[bin]]
+name = "rust-axum-sync"
+path = "src/main.rs"
+
+[dependencies]
+electric-client = { path = "../../packages/rust-client" }
+axum = "0.7"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync"] }
+serde_json = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }

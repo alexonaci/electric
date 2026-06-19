@@ -1,0 +1,9 @@
+{
+  "name": "@electric-sql/rust-axum-sync-example",
+  "version": "0.1.0",
+  "description": "Example Axum server serving Electric-synced Postgres rows",
+  "scripts": {
+    "build": "cargo build --release --manifest-path Cargo.toml",
+    "dev": "RUST_LOG=info cargo run --manifest-path Cargo.toml"
+  }
+}
