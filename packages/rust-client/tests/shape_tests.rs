@@ -14,15 +14,6 @@ use electric_client::{
 
 use support::{MockFetcher, MockResponse, SCHEMA_ID_TEXT};
 
-fn no_retry_backoff() -> BackoffOptions {
-    BackoffOptions {
-        initial_delay_ms: 1,
-        max_delay_ms: 1,
-        multiplier: 1.0,
-        max_retries: 0,
-    }
-}
-
 fn make_stream_with_mock(responses: Vec<MockResponse>) -> ShapeStream {
     let fetcher: Arc<dyn electric_client::fetch::Fetcher> = Arc::new(MockFetcher::new(responses));
     ShapeStream::new(ShapeStreamOptions {

@@ -6,12 +6,12 @@ use std::collections::HashMap;
 use std::sync::Arc;
 
 use electric_client::{
-    client::{ShapeEvent, ShapeStream, ShapeStreamOptions},
-    fetch::{BackoffOptions, ElectricRequest, ElectricResponse, Fetcher},
+    client::{ShapeStream, ShapeStreamOptions},
+    fetch::{BackoffOptions, Fetcher},
     ElectricError, Message, Offset,
 };
 use wiremock::matchers::{method, path, query_param};
-use wiremock::{Mock, MockServer, ResponseTemplate};
+use wiremock::{Mock, MockServer};
 
 use support::{collect_messages, MockFetcher, MockResponse, SCHEMA_ID_TEXT};
 

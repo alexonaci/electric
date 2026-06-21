@@ -12,7 +12,7 @@ use electric_client::{
     fetch::{ElectricRequest, ElectricResponse, Fetcher},
     ElectricError, Message,
 };
-use wiremock::{Mock, MockServer, ResponseTemplate};
+use wiremock::{ResponseTemplate};
 
 // ── Wire-format helpers ───────────────────────────────────────────────────────
 
